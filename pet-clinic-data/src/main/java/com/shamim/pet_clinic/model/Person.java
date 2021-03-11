@@ -9,7 +9,7 @@ package com.shamim.pet_clinic.model;
  *
  * @author Root
  */
-public class Person {
+public class Person extends BaseEntity{
     
     private String firstName;
     private String lastName;
