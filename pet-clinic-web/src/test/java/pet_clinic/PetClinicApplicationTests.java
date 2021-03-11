@@ -1,4 +1,4 @@
-package com.shamim.pet_clinic;
+package pet_clinic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
