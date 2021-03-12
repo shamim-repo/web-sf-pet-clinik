@@ -1,11 +1,11 @@
 package com.shamim.pet_clinic.service.map;
 
 import com.shamim.pet_clinic.model.Vet;
-import com.shamim.pet_clinic.service.CrudService;
+import com.shamim.pet_clinic.service.VetService;
 
 import java.util.Set;
 
-public abstract class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet,Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService{
 
     @Override
     public Set<Vet> findAll() {
