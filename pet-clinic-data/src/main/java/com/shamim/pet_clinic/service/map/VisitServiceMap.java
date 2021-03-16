@@ -2,17 +2,14 @@ package com.shamim.pet_clinic.service.map;
 
 import com.shamim.pet_clinic.model.Visit;
 import com.shamim.pet_clinic.service.VisitService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-
+@Service
+@Profile({"default","map"})
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
-
-    private final VisitService visitService;
-
-    public VisitServiceMap(VisitService visitService) {
-        this.visitService = visitService;
-    }
 
     @Override
     public Set<Visit> findAll() {
@@ -30,12 +27,18 @@ public class VisitServiceMap extends AbstractMapService<Visit, Long> implements 
     }
 
     @Override
-    public Visit save(Visit object) {
-        if (object.getPet()== null || object.getPet().getOwner()==null
-                || object.getPet().getId()==null || object.getPet().getOwner().getId()==null){
+    public Visit save(Visit visit) {
+        if(visit.getPet() == null || visit.getPet().getOwner() == null || visit.getPet().getId() == null
+                || visit.getPet().getOwner().getId() == null){
+
+            if (visit.getPet()== null) System.out.println("object.getPet()== null");
+            if ( visit.getPet().getOwner()==null) System.out.println("object.getPet().getOwner()==null");
+            if (visit.getPet().getId()==null) System.out.println("object.getPet().getId()==null");
+            if (visit.getPet().getOwner().getId()==null) System.out.println("object.getPet().getOwner().getId()==null");
+
             throw new RuntimeException("Invalid Visit");
         }
-        return visitService.save(object);
+        return super.save(visit);
     }
 
     @Override
